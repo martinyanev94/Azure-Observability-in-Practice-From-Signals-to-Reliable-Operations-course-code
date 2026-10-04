@@ -1,0 +1,7 @@
+let incidentStart = datetime(2026-10-03 20:00:00);
+let incidentEnd = datetime(2026-10-03 20:15:00);
+ExternalEvents_CL
+| where TimeGenerated between (incidentStart .. incidentEnd)
+| where _ResourceId == "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-checkout/providers/Microsoft.Web/sites/checkout-service"
+| where Severity in ("Error", "Critical")
+| project TimeGenerated, EventTime, EventId, Severity, Operation, Message, _ResourceId
