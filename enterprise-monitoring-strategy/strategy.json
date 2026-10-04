@@ -1,0 +1,20 @@
+{
+  "services": [
+    {
+      "name": "checkout-api",
+      "owner": "checkout-team",
+      "goals": ["availability", "latency", "errors"],
+      "signals": ["metric", "log", "trace"],
+      "high_volume": true,
+      "cost_policy": "Filter duplicate debug events and review interactive retention monthly."
+    },
+    {
+      "name": "order-worker",
+      "owner": "fulfillment-team",
+      "goals": ["capacity", "errors"],
+      "signals": ["metric", "log"],
+      "high_volume": false,
+      "cost_policy": "Review usage during service onboarding and after major releases."
+    }
+  ]
+}
