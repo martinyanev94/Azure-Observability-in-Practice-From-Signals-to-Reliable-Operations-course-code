@@ -1,0 +1,33 @@
+// Verify the deployed table schema before running these queries.
+// Replace the illustrative resource ID and time bounds with verified values.
+
+let startTime = datetime(2026-10-03 10:00:00Z);
+let endTime = datetime(2026-10-03 11:00:00Z);
+let resourceId = "/subscriptions/demo/resourceGroups/ops/providers/Microsoft.Web/sites/checkout-api";
+
+// 1. Preserve individual evidence after narrowing the incident scope.
+ExternalEvents_CL
+| where TimeGenerated between (startTime .. endTime)
+| where _ResourceId == resourceId
+| where Severity == "Error"
+| project TimeGenerated, Operation, Severity, Message, EventTime, _ResourceId
+
+// 2. Identify the busiest five-minute failure cluster.
+ExternalEvents_CL
+| where TimeGenerated between (startTime .. endTime)
+| where _ResourceId == resourceId
+| where Severity == "Error"
+| summarize FailureCount = count() by FailureBin = bin(TimeGenerated, 5m)
+| order by FailureBin asc
+| render timechart
+
+// 3. Rank operations inside the selected cluster.
+// Replace these illustrative bounds with the highest returned FailureBin.
+let clusterStart = datetime(2026-10-03 10:15:00Z);
+let clusterEnd = datetime(2026-10-03 10:20:00Z);
+ExternalEvents_CL
+| where TimeGenerated >= clusterStart and TimeGenerated < clusterEnd
+| where _ResourceId == resourceId
+| where Severity == "Error"
+| summarize FailureCount = count() by Operation
+| order by FailureCount desc
