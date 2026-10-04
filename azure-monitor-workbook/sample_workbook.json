@@ -1,0 +1,15 @@
+{
+  "resource_id": "/subscriptions/example/resourceGroups/ops/providers/Microsoft.Compute/virtualMachines/checkout-vm",
+  "dimension": "LUN 0",
+  "start_time": "2026-10-03T10:00:00Z",
+  "end_time": "2026-10-03T10:30:00Z",
+  "metrics": [
+    {"time": "2026-10-03T10:00:00Z", "resource_id": "/subscriptions/example/resourceGroups/ops/providers/Microsoft.Compute/virtualMachines/checkout-vm", "dimension": "LUN 0", "value": 82},
+    {"time": "2026-10-03T10:15:00Z", "resource_id": "/subscriptions/example/resourceGroups/ops/providers/Microsoft.Compute/virtualMachines/checkout-vm", "dimension": "LUN 0", "value": 88},
+    {"time": "2026-10-03T10:30:00Z", "resource_id": "/subscriptions/example/resourceGroups/ops/providers/Microsoft.Compute/virtualMachines/checkout-vm", "dimension": "LUN 0", "value": 86}
+  ],
+  "logs": [
+    {"time": "2026-10-03T10:12:00Z", "resource_id": "/subscriptions/example/resourceGroups/ops/providers/Microsoft.Compute/virtualMachines/checkout-vm", "severity": "Error", "operation": "Checkout", "message": "capacity throttle"},
+    {"time": "2026-10-03T10:21:00Z", "resource_id": "/subscriptions/example/resourceGroups/ops/providers/Microsoft.Compute/virtualMachines/checkout-vm", "severity": "Warning", "operation": "Checkout", "message": "capacity throttle"}
+  ]
+}
