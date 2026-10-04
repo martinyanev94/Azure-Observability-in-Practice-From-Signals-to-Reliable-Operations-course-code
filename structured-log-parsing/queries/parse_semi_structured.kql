@@ -1,0 +1,10 @@
+let start = datetime(2026-10-03T21:00:00Z);
+let end = datetime(2026-10-03T22:00:00Z);
+ExternalEvents_CL
+| parse-kv Message
+| extend DurationMs = toint(duration_ms)
+| where TimeGenerated between (start .. end)
+| where _ResourceId == "/subscriptions/<subscription>/resourceGroups/<group>/providers/<type>/<name>"
+| where status == "failed"
+| where isnotempty(operation) and isnotnull(DurationMs)
+| project TimeGenerated, _ResourceId, service, operation, status, DurationMs, request_id, Message
