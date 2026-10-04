@@ -1,0 +1,13 @@
+let startTime = datetime(2026-10-03 14:00:00Z);
+let endTime = datetime(2026-10-03 15:00:00Z);
+let clusterStart = datetime(2026-10-03 14:05:00Z);
+let clusterEnd = datetime(2026-10-03 14:10:00Z);
+let resourceId = "/subscriptions/example/resourceGroups/checkout/providers/Microsoft.Web/sites/checkout";
+ExternalEvents_CL
+| where TimeGenerated between (startTime .. endTime)
+| where TimeGenerated >= clusterStart and TimeGenerated < clusterEnd
+| where _ResourceId == resourceId
+| where Severity in ("Error", "Critical")
+| summarize FailureCount = count() by Operation
+| top 5 by FailureCount desc
+| render barchart
