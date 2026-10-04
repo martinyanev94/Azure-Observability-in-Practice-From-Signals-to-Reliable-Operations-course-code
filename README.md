@@ -1,0 +1,2 @@
+# Azure-Observability-in-Practice-From-Signals-to-Reliable-Operations-course-code
+Azure observability turns scattered metrics, logs, traces, and alerts into reliable operational decisions. Learn how to build an end-to-end Azure observability system that detects incidents, explains root causes, and guides effective response. You will learn to: - Design evidence-driven monitoring and observability strategies - Collect VM, applicat
