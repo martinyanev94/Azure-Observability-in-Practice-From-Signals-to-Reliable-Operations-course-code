@@ -1,0 +1,33 @@
+{
+  "route": {
+    "pattern": "alert_handoff",
+    "producer": "Azure Monitor",
+    "transport": "authenticated_webhook",
+    "destination": "IncidentDesk"
+  },
+  "context": {
+    "alert_id": "mem-042",
+    "resource_id": "checkout-vm",
+    "severity": "warning",
+    "condition": "guest.memory.available",
+    "window": "2026-10-03T22:00:00Z/2026-10-03T22:05:00Z"
+  },
+  "authentication": {
+    "mechanism": "managed_identity",
+    "permission": "send-alert-events",
+    "secret_in_repository": false
+  },
+  "ownership": {
+    "detection_owner": "Azure Monitor",
+    "first_alert_owner": "Azure Monitor",
+    "external_owner": "IncidentDesk",
+    "workflow_owner": "IncidentDesk",
+    "escalation_path": "IncidentDesk on-call"
+  },
+  "failure_handling": {
+    "incident_key": "alert_id+resource_id+condition",
+    "on_rejection": "record_and_retry",
+    "on_timeout": "record_and_retry",
+    "duplicate_policy": "update_existing_incident"
+  }
+}
