@@ -1,0 +1,3 @@
+{"timestamp":"2026-10-03T22:00:00Z","resource_id":"/subscriptions/example/resourceGroups/ops-rg/providers/Microsoft.Compute/virtualMachines/checkout-vm","metric_name":"guest.memory.available"}
+{"timestamp":"not-a-time","resource_id":"/subscriptions/example/resourceGroups/ops-rg/providers/Microsoft.Compute/virtualMachines/checkout-vm","metric_name":"guest.memory.available"}
+{"timestamp":"2026-10-03T22:02:00Z","resource_id":"/subscriptions/example/resourceGroups/ops-rg/providers/Microsoft.Compute/virtualMachines/checkout-vm"}
