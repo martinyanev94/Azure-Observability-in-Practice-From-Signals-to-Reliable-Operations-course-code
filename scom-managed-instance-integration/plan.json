@@ -1,0 +1,14 @@
+{
+  "integration": {
+    "source": "scom-managed-instance",
+    "workspace": "ops-baseline",
+    "data_types": ["STATE", "EVENT", "PERFORMANCE"],
+    "ownership": {
+      "detection": "SCOM Managed Instance",
+      "analysis": "Azure Monitor",
+      "first_alert": "SCOM Managed Instance"
+    },
+    "duplicate_alert_key": "checkout-service|condition|window",
+    "escalation": "Azure Monitor after SCOM acknowledgement timeout"
+  }
+}
