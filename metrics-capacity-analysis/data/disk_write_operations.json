@@ -1,0 +1,8 @@
+[
+  {"timestamp": "2026-10-03T20:00:00Z", "metric": "Data Disk Write Operations/Sec", "resource_id": "vm://checkout-vm", "dimensions": {"LUN": 0}, "value": 92},
+  {"timestamp": "2026-10-03T20:00:00Z", "metric": "Data Disk Write Operations/Sec", "resource_id": "vm://checkout-vm", "dimensions": {"LUN": 1}, "value": 4},
+  {"timestamp": "2026-10-03T20:05:00Z", "metric": "Data Disk Write Operations/Sec", "resource_id": "vm://checkout-vm", "dimensions": {"LUN": 0}, "value": 88},
+  {"timestamp": "2026-10-03T20:05:00Z", "metric": "Data Disk Write Operations/Sec", "resource_id": "vm://checkout-vm", "dimensions": {"LUN": 1}, "value": 6},
+  {"timestamp": "2026-10-03T20:10:00Z", "metric": "Data Disk Write Operations/Sec", "resource_id": "vm://checkout-vm", "dimensions": {"LUN": 0}, "value": 95},
+  {"timestamp": "2026-10-03T20:10:00Z", "metric": "Data Disk Write Operations/Sec", "resource_id": "vm://checkout-vm", "dimensions": {"LUN": 1}, "value": 5}
+]
