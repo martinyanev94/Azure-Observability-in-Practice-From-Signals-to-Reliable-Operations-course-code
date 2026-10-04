@@ -1,0 +1,10 @@
+let startTime = datetime(2026-10-03 14:00:00Z);
+let endTime = datetime(2026-10-03 15:00:00Z);
+let resourceId = "/subscriptions/example/resourceGroups/checkout/providers/Microsoft.Web/sites/checkout";
+ExternalEvents_CL
+| where TimeGenerated between (startTime .. endTime)
+| where _ResourceId == resourceId
+| where Severity in ("Error", "Critical")
+| summarize FailureCount = count() by FailureBin = bin(TimeGenerated, 5m)
+| order by FailureBin asc
+| render timechart
