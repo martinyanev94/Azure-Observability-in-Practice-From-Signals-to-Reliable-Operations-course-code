@@ -1,0 +1,8 @@
+{
+  "source_id": "aws-checkout-01",
+  "event_id": "evt-1042",
+  "event_time": "2026-10-03T23:20:00-04:00",
+  "severity": "warning",
+  "condition": "checkout error rate above policy",
+  "correlation_id": "checkout-req-8472"
+}
